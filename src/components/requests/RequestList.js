@@ -16,7 +16,7 @@ export const RequestList = () => {
 
 
     const getAllRequests = () => {
-        fetch(` http://localhost:8088/requests?_expand=cities`)
+        fetch(`http://localhost:8088/requests?_expand=cities`)
         .then(response => response.json())
         .then((requestArray) =>{
             setRequests(requestArray)
@@ -73,7 +73,8 @@ export const RequestList = () => {
                     filteredRequests.map(request=> <Requests  key={`request--${request.id}`}
                     heroes={heroes} 
                     currentUser={helpUserObject} 
-                    requestObject={request}/>)
+                    requestObject={request}
+                    getAllRequests={getAllRequests}/>)
             }
             
         

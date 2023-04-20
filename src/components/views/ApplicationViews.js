@@ -1,25 +1,19 @@
-import { Outlet, Route, Routes } from "react-router-dom"
-import { RequestForm } from "../requests/RequestForm"
-import { RequestList } from "../requests/RequestList"
-import { UpdateRequest } from "../requests/updateRequest"
+import { CitizenViews } from "./CitizenView"
+import { HeroViews } from "./HeroView"
+
+
 
 export const ApplicationViews = () => {
-	return (
-        <Routes>
-            <Route path="/" element={
-                <>
-                    <h1>Help Is On The Way</h1>
-                    <div>Superhero Service</div>
-
-                    <Outlet />
-                </>
-            }>
-
-                <Route path="requests" element={<RequestList /> } />
-                <Route path="requests/create" element={ <RequestForm /> } />
-                <Route path="/requests/:requestId/edit" element={<UpdateRequest/>} />
-
-            </Route>
-        </Routes>
-    )
+	
+    
+    const localHelpUser=localStorage.getItem("help_user")
+    const helpUserObject = JSON.parse(localHelpUser)
+    
+    if(helpUserObject.hero){
+        return <HeroViews />
+    }
+    else{
+        return <CitizenViews />
+    }
+    
 }

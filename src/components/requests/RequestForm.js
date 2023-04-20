@@ -5,6 +5,10 @@ export const RequestForm = () => {
 
     const [request, update] = useState({
         description:"",
+        specificLocation:"",
+        heroesId:0,
+        superVillianPresent:false,
+        superVillianName:"",
         citiesId:1
     })
     const [cities, setCities] = useState([])
@@ -39,7 +43,7 @@ export const RequestForm = () => {
             citiesId:request.citiesId,
             superVillianPresent:request.superVillianPresent,
             superVillianName:request.superVillianName,
-            heroesId:null
+            heroesId:request.heroesId
            }
 
            return fetch(`http://localhost:8088/requests`, {
@@ -78,7 +82,7 @@ return (
         </fieldset>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="description">Specific Location:</label>
+                <label htmlFor="specificLocation">Specific Location:</label>
                 <input
                     required autoFocus
                     type="text"
@@ -130,7 +134,9 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
+            {
+                  request.superVillianPresent
+            ?<div className="form-group">
                 <label htmlFor="description">Supervillian spotted:</label>
                 <input
                     required autoFocus
@@ -146,6 +152,8 @@ return (
                         }
                     } />
             </div>
+            :""
+              }
         </fieldset>
         <button 
             onClick={(clickEvent)=>{handleSaveButtonClick(clickEvent)}  }
