@@ -1,0 +1,15 @@
+.requests{
+    display:flex;
+  
+
+
+}
+
+.request{
+    background-color: rgb(124, 158, 244);
+    border: 1px dotted rgb(0, 0, 0);
+    padding: 0.7rem;
+    margin:20px;
+    width:25%
+
+}
