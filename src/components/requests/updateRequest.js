@@ -136,7 +136,7 @@ export const UpdateRequest= () => {
         </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Is there a supervillian present:</label>
+                    <label htmlFor="name">There a supervillian present:</label>
                     <input type="checkbox"
                         className="form-control"
                         value={request.superVillianPresent}
@@ -152,8 +152,10 @@ export const UpdateRequest= () => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="specialty">Supervillian spotted:</label>
+                    {
+                         request.superVillianPresent
+                      ?<div className="form-group">
+                    <label htmlFor="superVillianName">Supervillian spotted:</label>
                     <input
                         required autoFocus
                         type="text"
@@ -167,6 +169,8 @@ export const UpdateRequest= () => {
                             }
                         } />
                 </div>
+                 :""
+                     }
             </fieldset>
             <button
                 onClick={(clickEvent)=> handleSaveButtonClick(clickEvent)}
