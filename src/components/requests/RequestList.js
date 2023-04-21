@@ -43,8 +43,8 @@ export const RequestList = () => {
                 setFiltered(requests)
             }
             else{
-                const myTickets = requests.filter(request => request.userId===helpUserObject.id)
-                setFiltered(myTickets)
+                const myRequests = requests.filter(request => request.userId===helpUserObject.id)
+                setFiltered(myRequests)
             }
         },
         [requests]

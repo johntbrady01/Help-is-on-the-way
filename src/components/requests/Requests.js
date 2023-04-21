@@ -10,12 +10,13 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
         const filteredHeroes= heroes.find(hero => hero.id===requestObject.heroesId)
         const helpHero= heroes.find(hero => helpUserObject.id==hero.userId)
                 
-           
+         
 
         const deleteButton = () => {
             if(!currentUser.hero) {
                 return <button onClick={()=>{
                     console.log(requestObject.id)
+                    console.log(requestObject)
                     fetch(`http://localhost:8088/requests/${requestObject.id}`, {
                         method:"DELETE"
                     })
@@ -42,11 +43,11 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
                         body: JSON.stringify({
                            userId:requestObject.userId ,
                            description:requestObject.description,
-                            specificLocation:requestObject.specificLocation,
-                            citiesId:requestObject.citiesId,
-                            superVillianPresent: requestObject.superVillianPresent,
-                            heroesId: helpHero.id,
-                            superVillianName:requestObject.superVillianName
+                           specificLocation:requestObject.specificLocation,
+                           citiesId:requestObject.citiesId,
+                           superVillianPresent: requestObject.superVillianPresent,
+                           superVillianName:requestObject.superVillianName,
+                           heroesId: helpHero.id,
                         
                            
 
@@ -88,7 +89,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
     </div>
     <div>
         {
-            requestObject.heroesId
+            (requestObject.heroesId<9)
                 ?<div>{filteredHeroes?.user?.name} is on their way</div>
                 :"A superhero will be there soon"
         }
@@ -99,9 +100,9 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
             deleteButton()
         }
          {
-            !requestObject.heroesId
-            ?<div>{claimButton()}</div>
-            :""
+            (requestObject.heroesId<9)
+            ?""
+            :<div>{claimButton()}</div>
         }
     </footer>
     </section>

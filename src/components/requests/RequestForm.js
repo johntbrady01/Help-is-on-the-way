@@ -6,7 +6,7 @@ export const RequestForm = () => {
     const [request, update] = useState({
         description:"",
         specificLocation:"",
-        heroesId:0,
+        heroesId:9,
         superVillianPresent:false,
         superVillianName:"",
         citiesId:1
@@ -121,7 +121,7 @@ return (
         </fieldset>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="name">Is there a supervillian present?</label>
+                <label htmlFor="name">There is a supervillian present:</label>
                 <input type="checkbox"
                     value={request.superVillianPresent}
                     onChange={
