@@ -22,7 +22,8 @@ const filteredHeroes= heroes.filter(hero => hero.id<9)
 return <>
 
 <h2>Your Heroes</h2>
-            <article>
+            <div className="containerContainer">
+            <article className="heroesContainer">
             {   
                     filteredHeroes.map(hero=> <Heroes  key={`hero--${hero.id}`}
                     heroObject={hero}/>)
@@ -30,6 +31,7 @@ return <>
             
         
           </article>
+          </div>
     
 
 

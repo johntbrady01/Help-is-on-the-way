@@ -10,13 +10,16 @@ export const Heroes = ({heroObject}) => {
   <section className="container">
     <div className="heroes">
 
+    <div><img src={heroObject.photo} className='photos'></img></div>
+
     <div className="hero">
-        <div>{heroObject?.user?.name}</div>
-        <div>Home: {heroObject?.cities?.name}</div>
+        <div className="words">
+        <Link className="name">{heroObject?.user?.name}</Link>
+        <div className="city">Home: {heroObject?.cities?.name}</div>
+        </div>
     </div>
     
-        <div><img src={heroObject.photo} className='photos'></img></div>
-        
+
         </div>
     </section>
     
