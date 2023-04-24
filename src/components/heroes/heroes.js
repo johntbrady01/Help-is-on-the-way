@@ -14,8 +14,9 @@ export const Heroes = ({heroObject}) => {
 
     <div className="hero">
         <div className="words">
-        <Link className="name">{heroObject?.user?.name}</Link>
-        <div className="city">Home: {heroObject?.cities?.name}</div>
+        <Link  to={`/heroes/${heroObject.id}`}className="name">{heroObject?.user?.name}</Link>
+        <div className="city">Location: {heroObject?.cities?.name}</div>
+        <div>Partner: {heroObject?.partnersName}</div>
         </div>
     </div>
     
