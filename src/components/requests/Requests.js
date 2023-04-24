@@ -15,8 +15,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
         const deleteButton = () => {
             if(!currentUser.hero) {
                 return <button onClick={()=>{
-                    console.log(requestObject.id)
-                    console.log(requestObject)
+                
                     fetch(`http://localhost:8088/requests/${requestObject.id}`, {
                         method:"DELETE"
                     })

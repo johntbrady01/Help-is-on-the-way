@@ -9,6 +9,9 @@ export const HeroNav = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/requests">Requests</Link>
             </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/heroes">Heroes</Link>
+            </li>
             {
                 localStorage.getItem("help_user")
                     ? <li className="navbar__item navbar__logout">
