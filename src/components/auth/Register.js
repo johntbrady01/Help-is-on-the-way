@@ -15,28 +15,13 @@ export const Register = (props) => {
         userId:null
     
     })
-    const [allUsers, setUsers] =useState([])
+
 
     
 
 
     let navigate = useNavigate()
 
-    useEffect(
-        () => {
-           
-                fetch(`http://localhost:8088/users`)
-                .then(response => response.json())
-                .then((usersArray) =>{
-                    setUsers(usersArray)
-                })
-            },
-            [] 
-            )
-            
-            let lastUserId=null
-            lastUserId = allUsers.length+1;
-    console.log(lastUserId)
 
     const registerNewUser = () => {
         return fetch("http://localhost:8088/users", {
@@ -56,31 +41,23 @@ export const Register = (props) => {
                     
                         
                     }))
+
                     
+                    fetch("http://localhost:8088/citizens", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({...citizen, userId: createdUser.id})
+                })
+                    
+                    .then(() => {
+                        navigate("/")
+                    })
                 }
             })
             
-            .then(()=>{ 
-                fetch("http://localhost:8088/citizens", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(citizen)
-            })
-                .then(res => res.json())
-                .then(createdCitizen => {
-                         JSON.stringify({
-                            id: createdCitizen.id,
-                            address: createdCitizen.address,
-                            phoneNumber: createdCitizen.phoneNumber,
-                            userId:lastUserId
-                        
-    
-                        })
-                    
-                    navigate("/")
-                })})
+        
                
                 
             
