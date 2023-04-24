@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 
@@ -12,14 +12,31 @@ export const Register = (props) => {
     const [citizen, setCitizen] = useState({
         address: "",
         phoneNumber: "",
-        userId:""
+        userId:null
+    
     })
+    const [allUsers, setUsers] =useState([])
 
-     const [userId, setUserId] = useState()
+    
 
-   
 
     let navigate = useNavigate()
+
+    useEffect(
+        () => {
+           
+                fetch(`http://localhost:8088/users`)
+                .then(response => response.json())
+                .then((usersArray) =>{
+                    setUsers(usersArray)
+                })
+            },
+            [] 
+            )
+            
+            let lastUserId=null
+            lastUserId = allUsers.length+1;
+    console.log(lastUserId)
 
     const registerNewUser = () => {
         return fetch("http://localhost:8088/users", {
@@ -32,7 +49,6 @@ export const Register = (props) => {
             .then(res => res.json())
             .then(createdUser => {
                 if (createdUser.hasOwnProperty("id")) {
-                    setUserId(createdUser.id)
                     localStorage.setItem("help_user", JSON.stringify({
                         id: createdUser.id,
                         hero: createdUser.isHero,
@@ -54,16 +70,15 @@ export const Register = (props) => {
             })
                 .then(res => res.json())
                 .then(createdCitizen => {
-                    if (createdCitizen.hasOwnProperty("id")) {
                          JSON.stringify({
                             id: createdCitizen.id,
                             address: createdCitizen.address,
                             phoneNumber: createdCitizen.phoneNumber,
-                            userId:userId
+                            userId:lastUserId
                         
     
                         })
-                    }
+                    
                     navigate("/")
                 })})
                
