@@ -14,12 +14,12 @@ export const CitizenViews = () => {
                     <Outlet />
                 </>
             }>
+                </Route>
 
                 <Route path="requests" element={<RequestList /> } />
                 <Route path="requests/create" element={ <RequestForm /> } />
                 <Route path="/requests/:requestId/edit" element={<UpdateRequest/>} />
 
-            </Route>
         </Routes>
     )
 }

@@ -13,10 +13,10 @@ export const HeroViews = () => {
                     <Outlet />
                 </>
             }>
+            </Route>
 
                 <Route path="requests" element={<RequestList /> } />
 
-            </Route>
         </Routes>
     )
 }

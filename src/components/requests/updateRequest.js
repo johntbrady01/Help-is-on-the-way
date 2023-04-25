@@ -76,7 +76,7 @@ export const UpdateRequest= () => {
     <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
                 {feedback}
             </div>
-        <form className="request">
+        <form className="updateRequest">
             <h2 className="request__title">Request</h2>
             <fieldset>
                 <div className="form-group">
@@ -138,7 +138,7 @@ export const UpdateRequest= () => {
                 <div className="form-group">
                     <label htmlFor="name">There a supervillian present:</label>
                     <input type="checkbox"
-                        className="form-control"
+                        className="form-contro"
                         value={request.superVillianPresent}
                         checked={request.superVillianPresent}
                         onChange={

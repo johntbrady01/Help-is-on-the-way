@@ -95,28 +95,28 @@ export const Register = (props) => {
 
     return (
         <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
+            <form className="form--loin" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for Help Is On The Way</h1>
                 <fieldset>
-                    <label htmlFor="name"> Full Name </label>
+                    <label htmlFor="name" className="titles"> Full Name </label>
                     <input onChange={updateUser}
                            type="text" id="name" className="form-control"
                            placeholder="Enter your name" required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="email"> Email address </label>
+                    <label htmlFor="email" className="titles"> Email address </label>
                     <input onChange={updateUser}
                         type="email" id="email" className="form-control"
                         placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="address"> Address </label>
+                    <label htmlFor="address" className="titles"> Address </label>
                     <input onChange={updateCitizen}
                         type="address" id="address" className="form-control"
                         placeholder="Address" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="phoneNumber"> Phone Number </label>
+                    <label htmlFor="phoneNumber" className="titles"> Phone Number </label>
                     <input onChange={updateCitizen}
                         type="phoneNumber" id="phoneNumber" className="form-control"
                         placeholder="Phone Number" required />

@@ -1,3 +1,4 @@
+/*
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import "./Employees.css"
@@ -27,3 +28,4 @@ export const HeroBios = () => {
     <footer className="employee_footer">Currently working on {employee?.employeeTickets?.length} tickets</footer>
 </section>
 }
+*/

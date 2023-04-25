@@ -53,32 +53,33 @@ export const RequestList = () => {
 
 
     return <>
-    {
-        helpUserObject.hero
-        ?<>
-        </>
-        :<>
-        <button onClick={() => navigate("/requests/create")}>New Request</button>
 
-        </>
-        
-    }
-
-
-
-
-            <h2>List of Requests</h2>
-            <article className="requests">
-            {   
-                    filteredRequests.map(request=> <Requests  key={`request--${request.id}`}
-                    heroes={heroes} 
-                    currentUser={helpUserObject} 
-                    requestObject={request}
-                    getAllRequests={getAllRequests}/>)
-            }
-            
-        
-          </article>
+            <h2 className="requestsHeader">List of Requests</h2>
+                    <div className="buttonContainer">
+                    {
+                         helpUserObject.hero
+                         ?<>
+                         </>
+                         :<>
+                         <button onClick={() => navigate("/requests/create")} className="newRequest">New Request</button>
+                         </>
+                    }
+                    </div>
+            <div className="containerContainer">
+                <div className="container">
+                    <article className="requests">
+                    {   
+                            filteredRequests.map(request=> <Requests  key={`request--${request.id}`}
+                            heroes={heroes} 
+                            currentUser={helpUserObject} 
+                            requestObject={request}
+                            getAllRequests={getAllRequests}/>)
+                    }
+                    
+                
+                </article>
+            </div>
+          </div>
 </>
 
 }
