@@ -1,15 +1,87 @@
 .requests{
     display:flex;
-  
-
-
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .request{
-    background-color: rgb(124, 158, 244);
     border: 1px dotted rgb(0, 0, 0);
-    padding: 0.7rem;
     margin:20px;
-    width:25%
+    margin-left:50px;
+    width:250px;
+    height: 250px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.header{
+    background-color:#3e85ff37;;
+    display: flex;
+    justify-content: center;
+    height:30px;
+    padding-top: 10px;
+    font-weight: 600;
+    
+}
+
+.requestsHeader{
+    display: flex;
+    justify-content: center;
+    height:40px;
+}
+
+.container {
+    border: 1px solid rgb(0, 0, 0);
+    width:75%;
+    padding-bottom: 275px;
+    margin-bottom: 30px;
+    background-color: rgb(247, 245, 245);
+  
+    
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 200px;
+    padding-bottom: 20px;
+
+}
+
+
+.words {
+    padding: 10px;
+    height: 135px;
+    color: rgb(86, 85, 85);
+
+}
+
+.nameContainer{
+    display: flex;
+}
+
+.containerContainer {
+   display: flex;
+   justify-content: center;
+}
+
+.heroesName{
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.button {
+    padding-top: 5px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
 
 }
