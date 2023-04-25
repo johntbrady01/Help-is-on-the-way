@@ -43,16 +43,34 @@ fieldset {
 
 .container--login {
     text-align: center;
+    display: flex;
+}
+
+.logoBlue {
+    width:400px;
+    height:500px;
+    margin-right:150px;
+    margin-top: 20px;
+    margin-left:20px
 }
 
 .form--login {
     background-position-x: right;
     z-index: 1;
     min-height: 25rem;
-    min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
+    min-width: 35rem;
+    background-color: rgb(255, 255, 255);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
+    margin-top:130px;
+    padding:10px;
+    display: flex;
+    justify-content: center;
+    width:10px
+}
+
+.titles{
+    display: flex;
 }
 
 .button--close {
@@ -60,3 +78,6 @@ fieldset {
     bottom: -2rem;
 }
 
+.link--register{
+    padding-top: 30px;
+}

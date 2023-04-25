@@ -24,6 +24,15 @@
  
 
 }
+.yourHeroesContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.yourHeroes{
+   font-size: 30px;
+}
+
 
 .hero{
 

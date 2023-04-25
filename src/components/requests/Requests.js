@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) => {
@@ -9,6 +9,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
           
         const filteredHeroes= heroes.find(hero => hero.id===requestObject.heroesId)
         const helpHero= heroes.find(hero => helpUserObject.id==hero.userId)
+        const navigate = useNavigate()
                 
          
 
@@ -67,8 +68,9 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
 
 
 
-    return <section className="request">
-    <header>
+    return<>
+     <section className="request">
+    <header className="rheader">
         {
             currentUser.hero
                 ?`Request number: ${requestObject.id}`
@@ -76,6 +78,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
         }
         
     </header>
+    <div className="words">
     <div>Description: {requestObject.description}</div>
     <div>Location: {requestObject.specificLocation}, {requestObject.cities.name} </div>
     <div>
@@ -89,21 +92,27 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
     <div>
         {
             (requestObject.heroesId<9)
-                ?<div>{filteredHeroes?.user?.name} is on their way</div>
+                ?<div className="nameContainer">
+                    <div className="heroesName">{filteredHeroes?.user?.name}</div>
+                     is on their way
+                </div>
                 :"A superhero will be there soon"
         }
 
     </div>
-    <footer>
+    </div>
+    <footer className="footer">
         {
-            deleteButton()
+            <div className="button">{deleteButton()}</div>
         }
          {
             (requestObject.heroesId<9)
             ?""
-            :<div>{claimButton()}</div>
+            :<div className="button">{claimButton()}</div>
         }
     </footer>
     </section>
+
+    </>
 
 }

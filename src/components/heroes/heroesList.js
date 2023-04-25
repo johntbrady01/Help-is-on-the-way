@@ -21,7 +21,9 @@ const filteredHeroes= heroes.filter(hero => hero.id<9)
 
 return <>
 
-<h2>Your Heroes</h2>
+<div className="yourHeroesContainer">
+<h2 className="yourHeroes">Your Heroes</h2>
+</div>
             <div className="containerContainer">
             <article className="heroesContainer">
             {   

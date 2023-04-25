@@ -7,7 +7,7 @@ export const Heroes = ({heroObject}) => {
 
     return <>
 
-  <section className="container">
+  <section className="herocontainer">
     <div className="heroes">
 
     <div><img src={heroObject.photo} className='photos'></img></div>
