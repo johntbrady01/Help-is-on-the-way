@@ -43,6 +43,15 @@ fieldset {
 
 .container--login {
     text-align: center;
+    display: flex;
+}
+
+.logoBlue {
+    width:400px;
+    height:500px;
+    margin-right:150px;
+    margin-top: 20px;
+    margin-left:20px
 }
 
 .form--login {
@@ -69,3 +78,6 @@ fieldset {
     bottom: -2rem;
 }
 
+.link--register{
+    padding-top: 30px;
+}

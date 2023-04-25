@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
+import blue from "../photos/blue.png"
 
 export const Login = () => {
     const [email, set] = useState("batbruce@wayne.enterprises.com")
@@ -21,7 +22,7 @@ export const Login = () => {
                         admin: user.isAdmin
                     }))
 
-                    navigate("/")
+                    navigate("/home")
                 }
                 else {
                     window.alert("Invalid login")
@@ -31,6 +32,8 @@ export const Login = () => {
 
     return (
         <main className="container--login">
+             <img src ={blue} className="logoBlue" />
+             <div>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <div className="login-container">
@@ -56,6 +59,7 @@ export const Login = () => {
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
             </section>
+            </div>
         </main>
     )
 }

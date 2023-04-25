@@ -1,0 +1,46 @@
+.mainContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.centerContainer{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+
+
+}
+
+.headerContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.mainHeader{
+    font-size: 50px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+
+.photo {
+    width:75%;
+    height:400px;
+}
+
+.jlPhotoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.textContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    margin-top:50px;
+    width:70%;
+    margin-bottom: 50px;
+    font-size: 20px;
+
+}

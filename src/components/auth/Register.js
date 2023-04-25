@@ -52,7 +52,7 @@ export const Register = (props) => {
                 })
                     
                     .then(() => {
-                        navigate("/")
+                        navigate("/home")
                     })
                 }
             })
