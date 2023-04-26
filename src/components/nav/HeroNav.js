@@ -6,7 +6,7 @@ export const HeroNav = () => {
     const navigate = useNavigate()
 
     return <>
-            <img src ={white} className="logoWhite" />
+       
         <ul className="navbar">
              
               <li className="navbar__item active">
