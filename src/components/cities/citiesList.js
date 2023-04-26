@@ -3,6 +3,8 @@ import { Cities} from "./cities"
 
 export const CitiesList = () => {
     const [cities, setCities] = useState([])
+    const [heroes, setHeroes] = useState([])
+    
 
 
     useEffect(
@@ -17,6 +19,18 @@ export const CitiesList = () => {
     [] 
 )
 
+useEffect(
+    () => {
+
+    fetch(`http://localhost:8088/heroes?_expand=user`)
+    .then(response => response.json())
+    .then((heroArray) =>{
+        setHeroes(heroArray)
+    })
+},
+[] 
+)
+
 const filteredCities= cities.filter(city => city.id<8)
 
 return <>
@@ -28,6 +42,7 @@ return <>
             <article className="cityContainer">
             {   
                     filteredCities.map(city=> <Cities  key={`city--${city.id}`}
+                    heroes={heroes} 
                     cityObject={city}/>)
             }
             

@@ -72,21 +72,20 @@
 
 .bioDiv{
     display: flex;
-    background-color: rgba(205, 205, 205, 0.516);
+    background-color: rgba(221, 219, 219, 0.516);
     border-bottom:2px solid rgb(0, 0, 0);
 }
 
 .bioDivTwo{
     display: flex;
-    background-color: rgba(205, 205, 205, 0.516);
+    background-color: rgba(221, 219, 219, 0.516);
     
 }
 
 .bioDivThree{
     display: flex;
     border-bottom: 2px solid rgb(0, 0, 0);
-    background-color: rgba(205, 205, 205, 0.516);
-    
+    background-color: rgba(221, 219, 219, 0.516);
 }
 
 
