@@ -20,12 +20,27 @@ export const HeroBios = () => {
     )
 
 
-    return <section className="heroBio">
-    <header className="hero_header"><img src={hero?.photo} className="photos"></img> {hero?.user?.name}</header>
-    <div>{hero?.bio}</div>
-    <div>Location: {hero?.cities?.name}</div>
-    <div><img src={hero?.symbol} className="photos"></img></div>
-    <div>Partner: {hero?.partnersName}</div>
-    <div><img src={hero?.partnersSymbol} className="photos"></img> </div>
-</section>
+    return <>
+    <div className="bioContainer">
+        <section className="heroBio">
+            <div className="bioDiv">
+                <div className="divTop"><img src={hero?.photo} className="bioPhotos"></img></div>
+                <div className="divTwo"> <header className="bioName">{hero?.user?.name}</header></div>
+            </div>
+
+           <div className="bioDiv"><div className="bioText">{hero?.bio}</div></div>
+
+            <div className="bioDivThree">
+                <div className="div"><div className="otherBioText">Location: {hero?.cities?.name}</div></div>
+                <div className="divTwo"><img src={hero?.symbol} className="bioSymbol"></img></div>
+            </div>
+
+            <div className="bioDivTwo">
+                <div className="div"><div className="otherBioText">Partner: {hero?.partnersName}</div></div>
+                <div className="divTwo"><img src={hero?.partnersSymbol} className="bioSymbol"></img> </div>
+            </div>
+        </section>
+    </div>
+
+         </>
 }
