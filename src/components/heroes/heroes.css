@@ -1,0 +1,148 @@
+.photos {
+    width:200px;
+    height:250px;
+    margin-right: 50px;
+
+}
+
+.containerContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.heroesContainer{
+    border: 2px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 97%;
+}
+
+.heroes{
+    margin-bottom: 25px;
+    margin:20px
+ 
+
+}
+.yourHeroesContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.yourHeroes{
+   font-size: 30px;
+}
+
+
+.hero{
+
+    border: 2px solid rgb(0, 0, 0);
+    padding: 0.7rem;
+    width:155px;
+    height:175px;
+    padding-left: 30px;
+    background-color: rgb(239, 241, 242);
+  
+}
+
+.name{
+    font-size: 30px;
+    font-weight:700;
+    color: rgb(78, 200, 17);
+
+}
+
+
+
+.bioContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px ;
+    
+}
+
+.heroBio{
+   
+    width:50%;
+    height:745px;
+    margin-bottom: 100px;
+    border:2px solid rgb(0, 0, 0);
+}
+
+
+.bioDiv{
+    display: flex;
+    background-color: rgba(205, 205, 205, 0.516);
+    border-bottom:2px solid rgb(0, 0, 0);
+}
+
+.bioDivTwo{
+    display: flex;
+    background-color: rgba(205, 205, 205, 0.516);
+    
+}
+
+.bioDivThree{
+    display: flex;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: rgba(205, 205, 205, 0.516);
+    
+}
+
+
+.bioText{
+    height: 220px;
+    font-size: 15px;
+    padding-right:20px;
+    padding-left:20px;
+    padding-top:20px;
+    color: black;
+    
+}
+
+.bioSymbol{
+    height:75px;
+    width:50%;
+}
+
+.bioPhotos{
+    height:200px;
+    width:100%;
+}
+
+.div{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:150px;
+    border-right:2px solid rgb(0, 0, 0);
+}
+.divTop{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:200px;
+    border-right:2px solid rgb(0, 0, 0);
+}
+
+.divTwo{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:150px;
+}
+
+.bioName {
+    color: black;
+    font-size: 35px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.otherBioText {
+    color: black;
+    font-size: 15px;
+}

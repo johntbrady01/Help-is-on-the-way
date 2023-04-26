@@ -1,7 +1,7 @@
-/*
+
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import "./Employees.css"
+
 
 export const HeroBios = () => {
     const {heroId}=useParams()
@@ -9,23 +9,38 @@ export const HeroBios = () => {
 
     useEffect(
         () => {
-           fetch(`http://localhost:8088/heroes?_expand=user&id=${heroId}`)
+           fetch(`http://localhost:8088/heroes?_expand=user&_expand=cities&id=${heroId}`)
                 .then(response => response.json())
                 .then((data) =>{
-                    const singleEmployee=data[0]
-                    updateEmployee(singleEmployee)
+                    const singleHero=data[0]
+                    updateHero(singleHero)
                 })
         },
-        [employeeId] 
+        [heroId] 
     )
 
 
-    return <section className="employee">
-    <header className="employee_header">{employee?.user?.fullName}</header>
-    <div>Email: {employee?.user?.email}</div>
-    <div>Specialty: {employee.specialty}</div>
-    <div>Rate: {employee.rate}</div>
-    <footer className="employee_footer">Currently working on {employee?.employeeTickets?.length} tickets</footer>
-</section>
+    return <>
+    <div className="bioContainer">
+        <section className="heroBio">
+            <div className="bioDiv">
+                <div className="divTop"><img src={hero?.photo} className="bioPhotos"></img></div>
+                <div className="divTwo"> <header className="bioName">{hero?.user?.name}</header></div>
+            </div>
+
+           <div className="bioDiv"><div className="bioText">{hero?.bio}</div></div>
+
+            <div className="bioDivThree">
+                <div className="div"><div className="otherBioText">Location: {hero?.cities?.name}</div></div>
+                <div className="divTwo"><img src={hero?.symbol} className="bioSymbol"></img></div>
+            </div>
+
+            <div className="bioDivTwo">
+                <div className="div"><div className="otherBioText">Partner: {hero?.partnersName}</div></div>
+                <div className="divTwo"><img src={hero?.partnersSymbol} className="bioSymbol"></img> </div>
+            </div>
+        </section>
+    </div>
+
+         </>
 }
-*/
