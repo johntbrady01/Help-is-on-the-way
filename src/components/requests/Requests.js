@@ -93,7 +93,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
         {
             (requestObject.heroesId<9)
                 ?<div className="nameContainer">
-                    <div className="heroesName">{filteredHeroes?.user?.name}</div>
+                    <div className="heroesName"><Link  to={`/heroes/${filteredHeroes?.user?.id}`}className="heroesName"> {filteredHeroes?.user?.name}</Link></div>
                      is on their way
                 </div>
                 :"A superhero will be there soon"

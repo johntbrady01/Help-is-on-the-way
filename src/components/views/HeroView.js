@@ -3,6 +3,7 @@ import { Home } from "../home/home"
 import { HeroBios } from "../heroes/heroBios"
 import { HeroesList } from "../heroes/heroesList"
 import { RequestList } from "../requests/RequestList"
+import { CitiesList } from "../cities/citiesList"
 
 
 export const HeroViews = () => {
@@ -13,6 +14,7 @@ export const HeroViews = () => {
                 <Route path="requests" element={<RequestList /> } />
                 <Route path="heroes" element={<HeroesList /> } />
                 <Route path="heroes/:heroId" element={<HeroBios /> } />
+                <Route path="cities" element={<CitiesList /> } />
 
         </Routes>
     )
