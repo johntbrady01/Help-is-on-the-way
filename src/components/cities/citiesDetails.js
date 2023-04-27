@@ -35,6 +35,18 @@ export const CityDetails = () => {
         [] 
     )
 
+    const CityRequestsButton = () => {
+        if(helpUserObject.hero) {
+            return <button onClick={()=>{
+            
+              navigate(`/cityrequests/${cityId}`)
+            }} className="cityRequestButton">See all cities requests</button>
+        }
+        else {
+                return ""
+        }
+
+    }
   
     
 
@@ -61,6 +73,11 @@ export const CityDetails = () => {
                 <div className="cityPageBio">{city?.bio}</div>
                 </div>
                 <div className="cityHeroesName">Main Hero: <Link  to={`/heroes/${filteredHeroes?.id}`}className="cityHeroesName">{filteredHeroes?.user?.name}</Link></div>
+                <div className="cityRequestButton">
+                    {
+                        CityRequestsButton()
+                    }
+                </div>
                 </div>
         </section>
     </div>
