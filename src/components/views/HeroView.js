@@ -7,6 +7,7 @@ import { CitiesList } from "../cities/citiesList"
 import { CityDetails } from "../cities/citiesDetails"
 
 
+
 export const HeroViews = () => {
 	return (
         <Routes>
@@ -17,6 +18,10 @@ export const HeroViews = () => {
                 <Route path="heroes/:heroId" element={<HeroBios /> } />
                 <Route path="cities" element={<CitiesList /> } />
                 <Route path="cities/:cityId" element={<CityDetails /> } />
+                
+                
+               
+
 
         </Routes>
     )

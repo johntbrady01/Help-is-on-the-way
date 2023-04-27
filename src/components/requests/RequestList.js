@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { Requests} from "./Requests"
 import "./Requests.css"
@@ -9,7 +9,9 @@ export const RequestList = () => {
     const [requests, setRequests] = useState([])
     const [heroes, setHeroes] =useState([])
     const [filteredRequests, setFiltered] =useState([])
+    const [filteredCityRequests, setFilteredCity] =useState([])
     const navigate = useNavigate()
+    const {cityId}=useParams()
 
     const localHelpUser=localStorage.getItem("help_user")
     const helpUserObject = JSON.parse(localHelpUser)
@@ -50,6 +52,8 @@ export const RequestList = () => {
         [requests]
     )
 
+   
+
 
 
     return <>
@@ -76,7 +80,6 @@ export const RequestList = () => {
                             getAllRequests={getAllRequests}/>)
                     }
                     
-                
                 </article>
             </div>
           </div>

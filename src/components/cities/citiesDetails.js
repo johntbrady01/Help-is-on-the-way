@@ -36,24 +36,13 @@ export const CityDetails = () => {
     )
 
   
-    const cityRequests = () => {
-        if(helpUserObject.hero) {
-            return <button onClick={()=>{
-             
-                navigate(`/cities/requests/${cityId}`)
-            
-             
-            }} className="request__city">See City's Requests</button>
-        }
-        else {
-                return ""
-        }
-
-    }
-
-
-
     
+
+
+
+
+
+  
     const filteredHeroes = heroes?.find(hero => hero.citiesId===city.id)
 
     const localHelpUser=localStorage.getItem("help_user")
@@ -68,17 +57,10 @@ export const CityDetails = () => {
                 <div className="cityDivPhoto"><img src={city?.photo} className="cityPhoto"></img></div>
 
                 <div className="cityDivBio">
-                <div className="cityPageBio">
-                <div>{city?.bio}</div>
+                <div className="cityPageBioContainer">
+                <div className="cityPageBio">{city?.bio}</div>
                 </div>
                 <div className="cityHeroesName">Main Hero: <Link  to={`/heroes/${filteredHeroes?.id}`}className="cityHeroesName">{filteredHeroes?.user?.name}</Link></div>
-                <div className="cityRequestsButton">
-                {
-                
-                 <div>{cityRequests()}</div>
-               
-                 }
-                 </div>
                 </div>
         </section>
     </div>
