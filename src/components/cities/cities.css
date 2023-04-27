@@ -1,0 +1,107 @@
+.cityName{
+    font-size: 30px;
+    font-weight:700;
+    color: rgb(17, 169, 200);
+}
+
+.cities{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.cityContainer{
+    width:100%;
+}
+.oneCityContainer{
+    width:100%;
+    display: flex;
+    justify-content: center;
+
+}
+.city{
+    width: 50%;
+}
+.allCities{
+   font-size: 25px;
+   padding-bottom: 20px;
+}
+
+.oneCity{
+    border: 2px solid rgb(0, 0, 0);
+    width:100%;
+    height:246px;
+    margin-right: 100px;
+}
+.cityDivPhoto{
+    display: flex;
+    justify-content: center;
+}
+
+.cityPhoto{
+    width:700px;
+    height:500px;
+}
+.cityDivName{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    padding-bottom: 40px;
+    color: rgba(0, 0, 0, 0.741);
+}
+
+.cityDivBio{
+    width: 90%;
+    height:250px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 30px;
+    margin-top: 30px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.741);
+    margin-bottom: 50px;
+
+}
+
+.cityPageBioContainer{
+    margin-bottom: 20px;
+    height:120px
+}
+
+.cityPageBio{
+    margin-bottom: 30px;
+  
+}
+
+
+.cityName{
+    padding-left: 50px;
+}
+
+.cityPhotos {
+    width:200px;
+    height:250px;
+    margin-right: 50px;
+}
+
+.cityBio{
+    color: rgb(31, 30, 30);
+    padding:10px
+}
+
+
+.cityHeroesName{
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    padding-bottom:50px ;
+    padding-top:30px
+}
+
+
+
+.request__city{
+    color: black;
+}
+
+.cityRequestButton{
+    color:black
+}

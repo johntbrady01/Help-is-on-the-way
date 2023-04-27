@@ -17,6 +17,9 @@ export const CitizenNav = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/heroes">Heroes</Link>
             </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/cities">Cities</Link>
+            </li>
             {
                 localStorage.getItem("help_user")
                     ? <li className="navbar__item navbar__logout">

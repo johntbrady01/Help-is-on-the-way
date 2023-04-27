@@ -5,6 +5,8 @@ import { HeroesList } from "../heroes/heroesList"
 import { RequestForm } from "../requests/RequestForm"
 import { RequestList } from "../requests/RequestList"
 import { UpdateRequest } from "../requests/updateRequest"
+import { CitiesList } from "../cities/citiesList"
+import { CityDetails } from "../cities/citiesDetails"
 
 export const CitizenViews = () => {
 	return (
@@ -16,6 +18,8 @@ export const CitizenViews = () => {
                 <Route path="/requests/:requestId/edit" element={<UpdateRequest/>} />
                 <Route path="heroes" element={<HeroesList /> } />
                 <Route path="heroes/:heroId" element={<HeroBios /> } />
+                <Route path="cities" element={<CitiesList /> } />
+                <Route path="cities/:cityId" element={<CityDetails /> } />
 
         </Routes>
     )

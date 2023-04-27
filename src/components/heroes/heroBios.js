@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 
 export const HeroBios = () => {
@@ -31,7 +31,7 @@ export const HeroBios = () => {
            <div className="bioDiv"><div className="bioText">{hero?.bio}</div></div>
 
             <div className="bioDivThree">
-                <div className="div"><div className="otherBioText">Location: {hero?.cities?.name}</div></div>
+                <div className="div"><div className="otherBioText">Location: <Link  to={`/cities/${hero?.cities?.id}`}className="city"> {hero?.cities?.name}</Link></div></div>
                 <div className="divTwo"><img src={hero?.symbol} className="bioSymbol"></img></div>
             </div>
 

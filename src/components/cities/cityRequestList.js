@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import {  useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { Requests} from "./Requests"
-import "./Requests.css"
+import { CityRequests } from "./cityRequests"
 
 
-export const RequestList = () => {
+
+export const CityRequestList = () => {
     const [requests, setRequests] = useState([])
     const [heroes, setHeroes] =useState([])
-    const [filteredRequests, setFiltered] =useState([])
-    const navigate = useNavigate()
+    const {cityId}=useParams()
+    const [city, setCity] = useState([])
+
 
     const localHelpUser=localStorage.getItem("help_user")
     const helpUserObject = JSON.parse(localHelpUser)
 
 
     const getAllRequests = () => {
-        fetch(`http://localhost:8088/requests?_expand=cities`)
+        fetch(`http://localhost:8088/requests?citiesId=${cityId}`)
         .then(response => response.json())
         .then((requestArray) =>{
             setRequests(requestArray)
@@ -36,42 +37,30 @@ export const RequestList = () => {
         },
         [] 
     )
-
     useEffect(
-        ()=>{
-            if(helpUserObject.hero){
-                setFiltered(requests)
-            }
-            else{
-                const myRequests = requests.filter(request => request.userId===helpUserObject.id)
-                setFiltered(myRequests)
-            }
+        () => {
+           
+
+                fetch(`http://localhost:8088/cities?id=${cityId}`)
+                .then(response => response.json())
+                .then((data) =>{
+                    const singleCity=data[0]
+                    setCity(singleCity)
+                })
         },
-        [requests]
+        [cityId] 
     )
-
-   
-
+  
 
 
     return <>
 
-            <h2 className="requestsHeader">List of Requests</h2>
-                    <div className="buttonContainer">
-                    {
-                         helpUserObject.hero
-                         ?<>
-                         </>
-                         :<>
-                         <button onClick={() => navigate("/requests/create")} className="newRequest">New Request</button>
-                         </>
-                    }
-                    </div>
+            <h2 className="requestsHeader">List of {city?.name}'s Requests</h2>
             <div className="containerContainer">
                 <div className="container">
                     <article className="requests">
                     {   
-                            filteredRequests.map(request=> <Requests  key={`request--${request.id}`}
+                            requests.map(request=> <CityRequests  key={`request--${request.id}`}
                             heroes={heroes} 
                             currentUser={helpUserObject} 
                             requestObject={request}
@@ -84,4 +73,3 @@ export const RequestList = () => {
 </>
 
 }
-

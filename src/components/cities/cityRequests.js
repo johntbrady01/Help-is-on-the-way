@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 
 
-export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) => {
+export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests}) => {
    
 
     const localHelpUser=localStorage.getItem("help_user")
@@ -79,8 +79,8 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
         
     </header>
     <div className="words">
-    <div>Description: {requestObject.description}</div>
-    <div>Location: {requestObject.specificLocation}, {requestObject.cities.name} </div>
+    <div>Description: {requestObject?.description}</div>
+    <div>Location: {requestObject?.specificLocation}, {requestObject?.cities?.name} </div>
     <div>
         {
             requestObject.superVillianPresent
