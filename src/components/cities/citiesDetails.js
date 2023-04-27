@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 export const CityDetails = () => {
@@ -8,6 +9,8 @@ export const CityDetails = () => {
     const [city, updateCity]=useState({})
     const [heroes, updateHeroes]=useState()
 
+
+    const navigate=useNavigate()
 
     useEffect(
         () => {
@@ -31,10 +34,30 @@ export const CityDetails = () => {
         },
         [] 
     )
-    console.log(heroes)
+
+  
+    const cityRequests = () => {
+        if(helpUserObject.hero) {
+            return <button onClick={()=>{
+             
+                navigate(`/cities/requests/${cityId}`)
+            
+             
+            }} className="request__city">See City's Requests</button>
+        }
+        else {
+                return ""
+        }
+
+    }
+
+
 
     
     const filteredHeroes = heroes?.find(hero => hero.citiesId===city.id)
+
+    const localHelpUser=localStorage.getItem("help_user")
+    const helpUserObject = JSON.parse(localHelpUser)
         
     
 
@@ -45,8 +68,17 @@ export const CityDetails = () => {
                 <div className="cityDivPhoto"><img src={city?.photo} className="cityPhoto"></img></div>
 
                 <div className="cityDivBio">
-                <div className="cityPageBio">{city?.bio}</div>
-                <div>Main Hero: <Link  to={`/heroes/${filteredHeroes?.id}`}className="cityHeroesName">{filteredHeroes?.user?.name}</Link></div>
+                <div className="cityPageBio">
+                <div>{city?.bio}</div>
+                </div>
+                <div className="cityHeroesName">Main Hero: <Link  to={`/heroes/${filteredHeroes?.id}`}className="cityHeroesName">{filteredHeroes?.user?.name}</Link></div>
+                <div className="cityRequestsButton">
+                {
+                
+                 <div>{cityRequests()}</div>
+               
+                 }
+                 </div>
                 </div>
         </section>
     </div>

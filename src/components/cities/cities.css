@@ -56,13 +56,15 @@
     border: 2px solid rgb(0, 0, 0);
     padding: 30px;
     margin-top: 30px;
-    font-size: 17px;
+    font-size: 15px;
     color: rgba(0, 0, 0, 0.741);
+    margin-bottom: 50px;
 
 }
 
 .cityPageBio{
     margin-bottom: 20px;
+    height:120px
 }
 
 .cityName{
@@ -83,4 +85,11 @@
 .cityHeroesName{
     font-weight: 600;
     color: rgb(0, 0, 0);
+    padding-bottom:70px ;
+}
+
+
+
+.request__city{
+    color: black;
 }
