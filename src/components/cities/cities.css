@@ -13,7 +13,15 @@
 .cityContainer{
     width:100%;
 }
+.oneCityContainer{
+    width:100%;
+    display: flex;
+    justify-content: center;
 
+}
+.city{
+    width: 50%;
+}
 .allCities{
    font-size: 25px;
    padding-bottom: 20px;
@@ -24,6 +32,37 @@
     width:100%;
     height:246px;
     margin-right: 100px;
+}
+.cityDivPhoto{
+    display: flex;
+    justify-content: center;
+}
+
+.cityPhoto{
+    width:700px;
+    height:500px;
+}
+.cityDivName{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    padding-bottom: 40px;
+    color: rgba(0, 0, 0, 0.741);
+}
+
+.cityDivBio{
+    width: 90%;
+    height:250px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 30px;
+    margin-top: 30px;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.741);
+
+}
+
+.cityPageBio{
+    margin-bottom: 20px;
 }
 
 .cityName{
@@ -39,4 +78,9 @@
 .cityBio{
     color: rgb(31, 30, 30);
     padding:10px
+}
+
+.cityHeroesName{
+    font-weight: 600;
+    color: rgb(0, 0, 0);
 }
