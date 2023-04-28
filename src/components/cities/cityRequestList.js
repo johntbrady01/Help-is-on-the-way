@@ -7,7 +7,9 @@ import { CityRequests } from "./cityRequests"
 
 export const CityRequestList = () => {
     const [requests, setRequests] = useState([])
+    const [filteredRequests, setFiltered] =useState([])
     const [heroes, setHeroes] =useState([])
+    const [villianOnly, setVillianOnly] =useState(false)
     const {cityId}=useParams()
     const [city, setCity] = useState([])
 
@@ -38,6 +40,20 @@ export const CityRequestList = () => {
         },
         [] 
     )
+
+    useEffect(
+        ()=>{
+            if(villianOnly){
+                const superVillianPresent = requests.filter(request => request.superVillianPresent)
+                setFiltered(superVillianPresent)
+            }
+            else{
+                setFiltered(requests)
+            }
+        },
+        [villianOnly]
+
+)
     useEffect(
         () => {
            
@@ -52,16 +68,41 @@ export const CityRequestList = () => {
         [cityId] 
     )
   
+    useEffect(
+        ()=>{
+                setFiltered(requests)
+          
+        },
+        [requests]
+    )
 
 
     return <>
 
             <h2 className="requestsHeader">List of {city?.name}'s Requests</h2>
+            <div className="buttonContainer">
+                    {
+                         (helpUserObject.hero&&villianOnly)
+                         ?<>
+                         <button onClick={()=>{setVillianOnly(false) }  }>Show All</button>
+                         </>
+                         :<>
+                         </>
+                    }
+                    {
+                         (helpUserObject.hero&&!villianOnly)
+                         ?<>
+                         <button onClick={()=>{setVillianOnly(true) }  }>Supervillian Present</button>
+                         </>
+                         :<>
+                         </>
+                    }
+                    </div>
             <div className="containerContainer">
                 <div className="container">
                     <article className="requests">
                     {   
-                            requests.map(request=> <CityRequests  key={`request--${request.id}`}
+                            filteredRequests.map(request=> <CityRequests  key={`request--${request.id}`}
                             heroes={heroes} 
                             currentUser={helpUserObject} 
                             requestObject={request}

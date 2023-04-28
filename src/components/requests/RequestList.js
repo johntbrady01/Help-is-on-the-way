@@ -8,6 +8,7 @@ import "./Requests.css"
 export const RequestList = () => {
     const [requests, setRequests] = useState([])
     const [heroes, setHeroes] =useState([])
+    const [villianOnly, setVillianOnly] =useState(false)
     const [filteredRequests, setFiltered] =useState([])
     const navigate = useNavigate()
 
@@ -40,6 +41,20 @@ export const RequestList = () => {
 
     useEffect(
         ()=>{
+            if(villianOnly){
+                const superVillianPresent = requests.filter(request => request.superVillianPresent)
+                setFiltered(superVillianPresent)
+            }
+            else{
+                setFiltered(requests)
+            }
+        },
+        [villianOnly]
+
+)
+
+    useEffect(
+        ()=>{
             if(helpUserObject.hero){
                 setFiltered(requests)
             }
@@ -50,6 +65,8 @@ export const RequestList = () => {
         },
         [requests]
     )
+
+   
 
    
 
@@ -65,6 +82,24 @@ export const RequestList = () => {
                          </>
                          :<>
                          <button onClick={() => navigate("/requests/create")} className="newRequest">New Request</button>
+                         </>
+                    }
+                    </div>
+                    <div className="buttonContainer">
+                    {
+                         (helpUserObject.hero&&villianOnly)
+                         ?<>
+                         <button onClick={()=>{setVillianOnly(false) }  }>Show All</button>
+                         </>
+                         :<>
+                         </>
+                    }
+                    {
+                         (helpUserObject.hero&&!villianOnly)
+                         ?<>
+                         <button onClick={()=>{setVillianOnly(true) }  }>Supervillian Present</button>
+                         </>
+                         :<>
                          </>
                     }
                     </div>
