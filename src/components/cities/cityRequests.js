@@ -125,7 +125,109 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
                 return "A superhero will be there soon"
             }
         }
+        const switchClaimButton = () => {
+            if(currentUser.hero) {
+                return <button onClick={()=>{
+                    fetch(`http://localhost:8088/requests/${requestObject.id}`, {
+                        method:"PUT",
+                        headers: {
+                            "Content-Type":"application/json"
+                        },
+                        body: JSON.stringify({
+                           userId:requestObject.userId ,
+                           description:requestObject.description,
+                           specificLocation:requestObject.specificLocation,
+                           citiesId:requestObject.citiesId,
+                           superVillianPresent: requestObject.superVillianPresent,
+                           superVillianName:requestObject.superVillianName,
+                           heroesId: helpHero.id,
+                           partnerSent:false
+                        
+                           
 
+                      })
+
+                    })
+                    .then(()=>{
+                        getAllRequests()
+                    })
+
+                }} className="request__delete">Claim instead</button>
+            }
+            else {
+
+            }
+
+        }
+        const switchPartnerClaimButton = () => {
+            if(currentUser.hero) {
+                return <button onClick={()=>{
+                    fetch(`http://localhost:8088/requests/${requestObject.id}`, {
+                        method:"PUT",
+                        headers: {
+                            "Content-Type":"application/json"
+                        },
+                        body: JSON.stringify({
+                           userId:requestObject.userId ,
+                           description:requestObject.description,
+                           specificLocation:requestObject.specificLocation,
+                           citiesId:requestObject.citiesId,
+                           superVillianPresent: requestObject.superVillianPresent,
+                           superVillianName:requestObject.superVillianName,
+                           heroesId: helpHero.id,
+                           partnerSent:true
+                        
+                           
+
+                      })
+
+                    })
+                    .then(()=>{
+                        getAllRequests()
+                    })
+
+                }} className="request__delete">Send Partner instead</button>
+            }
+            else {
+
+            }
+
+        }
+
+        const cancelClaimButton = () => {
+            if(currentUser.hero) {
+                return <button onClick={()=>{
+                    fetch(`http://localhost:8088/requests/${requestObject.id}`, {
+                        method:"PUT",
+                        headers: {
+                            "Content-Type":"application/json"
+                        },
+                        body: JSON.stringify({
+                           userId:requestObject.userId ,
+                           description:requestObject.description,
+                           specificLocation:requestObject.specificLocation,
+                           citiesId:requestObject.citiesId,
+                           superVillianPresent: requestObject.superVillianPresent,
+                           superVillianName:requestObject.superVillianName,
+                           heroesId: 9,
+                           partnerSent:false
+                        
+                           
+
+                      })
+
+                    })
+                    .then(()=>{
+                        getAllRequests()
+                    })
+
+                }} className="request__delete">Cancel</button>
+            }
+            else {
+
+            }
+
+        }
 
 
     return<>
@@ -168,6 +270,21 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
             (requestObject.heroesId<9)
             ?""
             :<div className="button">{partnerClaimButton()}</div>
+        }
+             {
+            (requestObject.heroesId<9&&requestObject.partnerSent)
+            ?<div className="button">{switchClaimButton()}</div>
+            :""
+        }
+          {
+            (requestObject.heroesId<9&&!requestObject.partnerSent)
+            ?<div className="partnerInsteadButton">{switchPartnerClaimButton()}</div>
+            :""
+        }
+        {
+            (requestObject.heroesId<9)
+            ?<div className="button">{cancelClaimButton()}</div>
+            :""
         }
     </footer>
     </section>
