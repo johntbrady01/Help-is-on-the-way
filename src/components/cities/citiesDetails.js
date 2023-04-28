@@ -36,7 +36,7 @@ export const CityDetails = () => {
     )
 
     const CityRequestsButton = () => {
-        if(helpUserObject.hero) {
+        if(helpUserObject.hero&&cityId<8) {
             return <button onClick={()=>{
             
               navigate(`/cityrequests/${cityId}`)

@@ -163,7 +163,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, fi
                         getAllRequests()
                     })
 
-                }} className="request__delete">Send Partner instead</button>
+                }} className="request__delete">Send partner instead</button>
             }
             else {
 

@@ -42,7 +42,7 @@
 .cityPhoto{
     width:700px;
     height:500px;
-    object-fit: cover;
+    
 }
 .cityDivName{
     display: flex;

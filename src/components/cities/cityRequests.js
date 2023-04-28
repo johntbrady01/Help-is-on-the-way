@@ -187,7 +187,7 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
                         getAllRequests()
                     })
 
-                }} className="request__delete">Send Partner instead</button>
+                }} className="request__delete">Send partner instead</button>
             }
             else {
 
