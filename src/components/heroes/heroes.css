@@ -2,6 +2,7 @@
     width:200px;
     height:250px;
     margin-right: 50px;
+    object-fit: cover;
 
 }
 
@@ -102,11 +103,13 @@
 .bioSymbol{
     height:75px;
     width:50%;
+    object-fit: cover;
 }
 
 .bioPhotos{
     height:200px;
     width:100%;
+    object-fit: cover;
 }
 
 .div{

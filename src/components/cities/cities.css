@@ -36,11 +36,13 @@
 .cityDivPhoto{
     display: flex;
     justify-content: center;
+    object-fit: cover;
 }
 
 .cityPhoto{
     width:700px;
     height:500px;
+    object-fit: cover;
 }
 .cityDivName{
     display: flex;
@@ -81,6 +83,7 @@
     width:200px;
     height:250px;
     margin-right: 50px;
+    object-fit: cover;
 }
 
 .cityBio{
