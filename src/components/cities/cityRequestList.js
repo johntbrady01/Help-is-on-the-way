@@ -99,7 +99,7 @@ export const CityRequestList = () => {
                     }
                     </div>
             <div className="containerContainer">
-                <div className="container">
+                <div className="cityRequestcontainer">
                     <article className="requests">
                     {   
                             filteredRequests.map(request=> <CityRequests  key={`request--${request.id}`}

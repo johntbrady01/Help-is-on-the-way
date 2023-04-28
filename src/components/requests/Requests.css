@@ -39,7 +39,9 @@
   
     
 }
-
+.villianButton{
+    margin-right: 4px;
+}
 .buttonContainer{
     display: flex;
     justify-content: flex-end;
