@@ -9,7 +9,8 @@ export const RequestForm = () => {
         heroesId:9,
         superVillianPresent:false,
         superVillianName:"",
-        citiesId:1
+        citiesId:1,
+        partnerSent:false
     })
     const [cities, setCities] = useState([])
 
@@ -43,7 +44,8 @@ export const RequestForm = () => {
             citiesId:request.citiesId,
             superVillianPresent:request.superVillianPresent,
             superVillianName:request.superVillianName,
-            heroesId:request.heroesId
+            heroesId:request.heroesId,
+            partnerSent:request.partnerSent
            }
 
            return fetch(`http://localhost:8088/requests`, {
