@@ -9,12 +9,14 @@ export const RequestList = () => {
     const [requests, setRequests] = useState([])
     const [heroes, setHeroes] =useState([])
     const [villianOnly, setVillianOnly] =useState(false)
+    const [myCity, setMyCity] =useState(false)
     const [filteredRequests, setFiltered] =useState([])
     const navigate = useNavigate()
 
  
     const localHelpUser=localStorage.getItem("help_user")
     const helpUserObject = JSON.parse(localHelpUser)
+    const helpHero= heroes.find(hero => helpUserObject.id==hero.userId)
 
 
     const getAllRequests = () => {
@@ -53,6 +55,37 @@ export const RequestList = () => {
 
 )
 
+useEffect(
+    ()=>{
+        if(myCity){
+            const myCityOnly = requests.filter(request => request.citiesId===helpHero.citiesId)
+            setFiltered(myCityOnly)
+        }
+        else{
+            setFiltered(requests)
+        }
+    },
+    [myCity]
+
+)
+
+useEffect(
+    ()=>{
+        if(myCity&&villianOnly){
+            const myCityOnly = requests.filter(request => request.citiesId===helpHero.citiesId)
+            const myCityOnlyAndVillian= myCityOnly.filter(request => request.superVillianPresent)
+            setFiltered(myCityOnlyAndVillian)
+        }
+        else{
+            setFiltered(requests)
+        }
+    },
+    []
+
+)
+
+
+
     useEffect(
         ()=>{
             if(helpUserObject.hero){
@@ -87,17 +120,29 @@ export const RequestList = () => {
                     </div>
                     <div className="buttonContainer">
                     {
-                         (helpUserObject.hero&&villianOnly)
+                         (helpUserObject.hero&&(villianOnly||myCity))
                          ?<>
-                         <button onClick={()=>{setVillianOnly(false) }  }>Show All</button>
+                         <button onClick={()=>{
+                            setVillianOnly(false) 
+                            setFiltered(requests)
+                            setMyCity(false)
+                        }  }>Show All</button>
                          </>
                          :<>
                          </>
                     }
                     {
-                         (helpUserObject.hero&&!villianOnly)
+                         (helpUserObject.hero&&!villianOnly&&!myCity)
                          ?<>
-                         <button onClick={()=>{setVillianOnly(true) }  }>Supervillian Present</button>
+                         <button className="villianButton" onClick={()=>{setVillianOnly(true) }  }>Supervillian present</button>
+                         </>
+                         :<>
+                         </>
+                    }
+                     {
+                         (helpUserObject.hero&&!myCity&&!villianOnly)
+                         ?<>
+                         <button onClick={()=>{setMyCity(true) }  }>My citites requests</button>
                          </>
                          :<>
                          </>

@@ -108,3 +108,14 @@
 .cityRequestButton{
     color:black
 }
+
+.cityRequestcontainer {
+    border: 1px solid rgb(0, 0, 0);
+    width:75%;
+    padding-bottom: 275px;
+    margin-bottom: 30px;
+    background-color: rgb(247, 245, 245);
+    height:250px
+  
+    
+}
