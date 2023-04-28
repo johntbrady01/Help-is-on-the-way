@@ -13,7 +13,7 @@ export const Home = () => {
                      </div>
                     
                      <div className="jlPhotoContainer">
-                     <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/09/Justice-League-of-America.jpg" className="photo"/>
+                     <img src="https://comicartcommunity.com/wp-content/uploads/2017/11/00-Justice-League.jpg" className="photo"/>
                      </div>
 
 
