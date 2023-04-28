@@ -11,6 +11,7 @@ export const RequestList = () => {
     const [filteredRequests, setFiltered] =useState([])
     const navigate = useNavigate()
 
+ 
     const localHelpUser=localStorage.getItem("help_user")
     const helpUserObject = JSON.parse(localHelpUser)
 
@@ -75,7 +76,8 @@ export const RequestList = () => {
                             heroes={heroes} 
                             currentUser={helpUserObject} 
                             requestObject={request}
-                            getAllRequests={getAllRequests}/>)
+                            getAllRequests={getAllRequests}
+                            filteredRequests={filteredRequests}/>)
                     }
                     
                 </article>

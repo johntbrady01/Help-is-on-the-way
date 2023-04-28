@@ -59,7 +59,6 @@
 
 
 
-
 .nameContainer{
     display: flex;
 
@@ -97,8 +96,7 @@
 
 .footer {
     display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+    justify-content: center;
     background-color: rgb(255, 255, 255);
     padding-top: 12px;
 
