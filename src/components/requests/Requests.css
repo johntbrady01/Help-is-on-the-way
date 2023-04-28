@@ -83,7 +83,9 @@
 
 }
 
-
+.request__delete{
+    font-size: 12px;
+}
 
 
 .button {
@@ -92,6 +94,16 @@
     display: flex;
     justify-content: center;
     background-color: rgb(255, 255, 255);
+}
+
+.partnerInsteadButton {
+    padding-top: 5px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(255, 255, 255);
+    height:27px;
+    
 }
 
 .footer {
