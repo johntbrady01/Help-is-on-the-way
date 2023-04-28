@@ -277,18 +277,18 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, fi
             ?""
             :<div className="button">{partnerClaimButton()}</div>
         }
-         {
-            (requestObject.heroesId<9&&requestObject.partnerSent)
+              {
+            (requestObject.heroesId<9&&requestObject.partnerSent&&helpHero?.id===requestObject?.heroesId)
             ?<div className="button">{switchClaimButton()}</div>
             :""
         }
           {
-            (requestObject.heroesId<9&&!requestObject.partnerSent)
+            (requestObject.heroesId<9&&!requestObject.partnerSent&&helpHero?.id===requestObject?.heroesId)
             ?<div className="partnerInsteadButton">{switchPartnerClaimButton()}</div>
             :""
         }
         {
-            (requestObject.heroesId<9)
+            (requestObject.heroesId<9&&helpHero?.id===requestObject?.heroesId)
             ?<div className="button">{cancelClaimButton()}</div>
             :""
         }
