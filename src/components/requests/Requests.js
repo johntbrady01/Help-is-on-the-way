@@ -92,9 +92,12 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests}) =
     <div>
         {
             (requestObject.heroesId<9)
-                ?<div className="nameContainer">
-                    <div className="heroesName"><Link  to={`/heroes/${filteredHeroes?.user?.id}`}className="heroesName"> {filteredHeroes?.user?.name}</Link></div>
-                     is on their way
+                ?<div>
+                <div className="nameContainer">
+                    <div className="heroName"><Link  to={`/heroes/${filteredHeroes?.user?.id}`}className="heroesName"> {filteredHeroes?.user?.name}</Link></div>
+                    is on their way 
+                </div>
+                    <div className="requestSymbolContainer"><img src={filteredHeroes?.symbol} className="requestSymbol"/></div>
                 </div>
                 :"A superhero will be there soon"
         }
