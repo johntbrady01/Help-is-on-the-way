@@ -56,8 +56,13 @@
 
 }
 
+
+
+
+
 .nameContainer{
     display: flex;
+
 }
 
 .containerContainer {
@@ -67,9 +72,20 @@
 
 .heroesName{
     font-weight: 600;
-    margin-right: 4px;
+    margin-right: 2px;
     color: rgb(0, 0, 0);
 }
+.requestSymbol{
+    width:25px;
+    height:30px;
+    padding-left: 22px;
+    padding-bottom: 20px;
+
+
+}
+
+
+
 
 .button {
     padding-top: 5px;
@@ -84,5 +100,6 @@
     justify-content: flex-end;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
+    padding-top: 12px;
 
 }
