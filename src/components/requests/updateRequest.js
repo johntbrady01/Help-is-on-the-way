@@ -72,7 +72,7 @@ export const UpdateRequest= () => {
             })
     
     }
-    return <>
+    return <article className="addMargin">
     <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
                 {feedback}
             </div>
@@ -178,7 +178,7 @@ export const UpdateRequest= () => {
                 Save Request
             </button>
         </form>
-    </>
+    </article>
 
 
 }
