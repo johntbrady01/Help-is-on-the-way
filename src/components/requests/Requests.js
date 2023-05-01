@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 
 
-export const Requests = ({requestObject, currentUser, heroes, getAllRequests, filteredRequests}) => {
+export const Requests = ({requestObject, currentUser, heroes, getAllRequests, getFilteredRequests}) => {
    
 
     const localHelpUser=localStorage.getItem("help_user")

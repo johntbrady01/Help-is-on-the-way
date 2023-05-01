@@ -115,7 +115,7 @@
     padding-bottom: 275px;
     margin-bottom: 30px;
     background-color: rgb(247, 245, 245);
-    height:250px
+    min-height:250px
   
     
 }

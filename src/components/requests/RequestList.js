@@ -27,6 +27,10 @@ export const RequestList = () => {
         })
     }
 
+    const getFilteredRequests = () => {
+        setFiltered(filteredRequests)
+    }
+
     useEffect(
         () => {
            
@@ -157,6 +161,7 @@ useEffect(
                             currentUser={helpUserObject} 
                             requestObject={request}
                             getAllRequests={getAllRequests}
+                            getFilteredRequests={getFilteredRequests}
                             filteredRequests={filteredRequests}/>)
                     }
                     
