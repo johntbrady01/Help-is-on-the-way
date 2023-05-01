@@ -93,7 +93,7 @@ export const Register = (props) => {
         setCitizen(copy)
     }
 
-    return (
+    return <article className="addMargin">
         <main style={{ textAlign: "center" }}>
             <form className="form--loin" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for Help Is On The Way</h1>
@@ -126,6 +126,6 @@ export const Register = (props) => {
                 </fieldset>
             </form>
         </main>
-    )
+    </article>
 }
 

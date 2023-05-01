@@ -61,7 +61,7 @@ export const RequestForm = () => {
                         navigate("/requests")
                 }) 
 }
-return (
+return <article className="addMargin">
     <form className="requestForm">
         <h2 className="requestForm__title">New Request</h2>
         <fieldset>
@@ -165,5 +165,5 @@ return (
         </button>
     </form>
 
-    )
+    </article>
     }

@@ -19,7 +19,7 @@ export const HeroesList = () => {
 
 const filteredHeroes= heroes.filter(hero => hero.id<9)
 
-return <>
+return <article className="addMargin">
 
 <div className="yourHeroesContainer">
 <h2 className="yourHeroes">Your Heroes</h2>
@@ -38,5 +38,5 @@ return <>
 
 
 
-</>
+</article>
 }

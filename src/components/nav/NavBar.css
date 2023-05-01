@@ -5,6 +5,8 @@
     background-color: #4183f56b;;
     padding-left: 100px;
     padding-bottom: 40px;
+    margin: 0;
+    width: 93%;
 }
 
 .navbar__item {

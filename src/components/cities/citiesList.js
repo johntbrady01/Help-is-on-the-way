@@ -33,7 +33,7 @@ useEffect(
 
 const filteredCities= cities.filter(city => city.id<8)
 
-return <>
+return <article className="addMargin">
 
 <div className="citiesContainer">
 <h2 className="allCities">The Cities we serve</h2>
@@ -50,5 +50,5 @@ return <>
           </article>
           </div>
 
-</>
+</article>
 }

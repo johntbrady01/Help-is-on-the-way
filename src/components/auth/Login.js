@@ -30,7 +30,7 @@ export const Login = () => {
             })
     }
 
-    return (
+    return <article className="addMargin">
         <main className="container--login">
              <img src ={blue} className="logoBlue" />
              <div>
@@ -61,6 +61,6 @@ export const Login = () => {
             </section>
             </div>
         </main>
-    )
+        </article>
 }
 
