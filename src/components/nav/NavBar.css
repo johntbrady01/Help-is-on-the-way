@@ -4,7 +4,7 @@
     justify-content: left;
     background-color: #4183f56b;;
     padding-left: 100px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     margin: 0;
     width: 93%;
 }
@@ -12,6 +12,7 @@
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    padding-top: 15px;
 }
 
 .navbar__logout {
@@ -23,4 +24,12 @@
     height:50px;
     position: absolute;
 
+}
+
+.navbar__link{
+    color: rgb(246, 246, 246);
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none
+   
 }
