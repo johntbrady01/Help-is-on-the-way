@@ -6,7 +6,6 @@ import { CityRequests } from "./cityRequests"
 
 
 export const CityRequestList = () => {
-    const [requests, setRequests] = useState([])
     const [filteredRequests, setFiltered] =useState([])
     const [heroes, setHeroes] =useState([])
     const [villianOnly, setVillianOnly] =useState(false)
@@ -19,19 +18,24 @@ export const CityRequestList = () => {
     const helpUserObject = JSON.parse(localHelpUser)
 
 
-    const getAllRequests = () => {
-        fetch(`http://localhost:8088/requests?citiesId=${cityId}`)
+    const getFilteredRequests = () => {
+        let url = `http://localhost:8088/requests?citiesId=${cityId}`
+       
+         if(villianOnly){
+           url += `&superVillianPresent=true`
+        
+        }
+        
+        fetch(`${url}`)
         .then(response => response.json())
         .then((requestArray) =>{
-            setRequests(requestArray)
+            setFiltered(requestArray)
         })
+
     }
 
     useEffect(
         () => {
-           
-            getAllRequests()
-
                 fetch(`http://localhost:8088/heroes?_expand=user`)
                 .then(response => response.json())
                 .then((heroArray) =>{
@@ -43,13 +47,7 @@ export const CityRequestList = () => {
 
     useEffect(
         ()=>{
-            if(villianOnly){
-                const superVillianPresent = requests.filter(request => request.superVillianPresent)
-                setFiltered(superVillianPresent)
-            }
-            else{
-                setFiltered(requests)
-            }
+            getFilteredRequests()
         },
         [villianOnly]
 
@@ -68,14 +66,6 @@ export const CityRequestList = () => {
         [cityId] 
     )
   
-    useEffect(
-        ()=>{
-                setFiltered(requests)
-          
-        },
-        [requests]
-    )
-
 
     return <>
 
@@ -106,7 +96,7 @@ export const CityRequestList = () => {
                             heroes={heroes} 
                             currentUser={helpUserObject} 
                             requestObject={request}
-                            getAllRequests={getAllRequests}/>)
+                            getFiltered={getFilteredRequests}/>)
                     }
                     
                 </article>
