@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 
 
-export const Requests = ({requestObject, currentUser, heroes, getAllRequests, getFilteredRequests}) => {
+export const Requests = ({requestObject, currentUser, heroes, getAllRequests, getFiltered, setFiltered}) => {
    
 
     const localHelpUser=localStorage.getItem("help_user")
@@ -22,7 +22,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, ge
                         method:"DELETE"
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Delete</button>
@@ -57,7 +57,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, ge
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Claim</button>
@@ -91,7 +91,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, ge
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Send Partner</button>
@@ -126,7 +126,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, ge
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Claim instead</button>
@@ -160,7 +160,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, ge
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Send partner instead</button>
@@ -195,7 +195,7 @@ export const Requests = ({requestObject, currentUser, heroes, getAllRequests, ge
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Cancel</button>

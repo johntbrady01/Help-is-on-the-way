@@ -6,7 +6,6 @@ import "./Requests.css"
 
 
 export const RequestList = () => {
-    const [requests, setRequests] = useState([])
     const [heroes, setHeroes] =useState([])
     const [villianOnly, setVillianOnly] =useState(false)
     const [myCity, setMyCity] =useState(false)
@@ -19,23 +18,34 @@ export const RequestList = () => {
     const helpHero= heroes.find(hero => helpUserObject.id==hero.userId)
 
 
-    const getAllRequests = () => {
-        fetch(`http://localhost:8088/requests?_expand=cities`)
-        .then(response => response.json())
-        .then((requestArray) =>{
-            setRequests(requestArray)
-        })
-    }
+  
 
     const getFilteredRequests = () => {
-        setFiltered(filteredRequests)
+        let url = `http://localhost:8088/requests?_expand=cities`
+        if(myCity){
+            const myCityId=helpHero.citiesId
+            url +=`&citiesId=${myCityId} `
+        
+        }
+         if(villianOnly){
+           url += `&superVillianPresent=true`
+        }
+        if(!helpUserObject.hero){
+            url += `&userId=${helpUserObject.id}`
+         }
+
+        fetch(`${url}`)
+        .then(response => response.json())
+        .then((requestArray) =>{
+            setFiltered(requestArray)
+        })
+
     }
 
+    
     useEffect(
         () => {
            
-            getAllRequests()
-
                 fetch(`http://localhost:8088/heroes?_expand=user`)
                 .then(response => response.json())
                 .then((heroArray) =>{
@@ -44,64 +54,16 @@ export const RequestList = () => {
         },
         [] 
     )
+    
 
     useEffect(
         ()=>{
-            if(villianOnly){
-                const superVillianPresent = requests.filter(request => request.superVillianPresent)
-                setFiltered(superVillianPresent)
-            }
-            else{
-                setFiltered(requests)
-            }
+         getFilteredRequests()
         },
-        [villianOnly]
+        [villianOnly, myCity]
 
 )
 
-useEffect(
-    ()=>{
-        if(myCity){
-            const myCityOnly = requests.filter(request => request.citiesId===helpHero.citiesId)
-            setFiltered(myCityOnly)
-        }
-        else{
-            setFiltered(requests)
-        }
-    },
-    [myCity]
-
-)
-
-useEffect(
-    ()=>{
-        if(myCity&&villianOnly){
-            const myCityOnly = requests.filter(request => request.citiesId===helpHero.citiesId)
-            const myCityOnlyAndVillian= myCityOnly.filter(request => request.superVillianPresent)
-            setFiltered(myCityOnlyAndVillian)
-        }
-        else{
-            setFiltered(requests)
-        }
-    },
-    []
-
-)
-
-
-
-    useEffect(
-        ()=>{
-            if(helpUserObject.hero){
-                setFiltered(requests)
-            }
-            else{
-                const myRequests = requests.filter(request => request.userId===helpUserObject.id)
-                setFiltered(myRequests)
-            }
-        },
-        [requests]
-    )
 
    
 
@@ -128,7 +90,6 @@ useEffect(
                          ?<>
                          <button onClick={()=>{
                             setVillianOnly(false) 
-                            setFiltered(requests)
                             setMyCity(false)
                         }  }>Show All</button>
                          </>
@@ -160,8 +121,8 @@ useEffect(
                             heroes={heroes} 
                             currentUser={helpUserObject} 
                             requestObject={request}
-                            getAllRequests={getAllRequests}
-                            getFilteredRequests={getFilteredRequests}
+                          
+                            getFiltered={getFilteredRequests}
                             filteredRequests={filteredRequests}/>)
                     }
                     

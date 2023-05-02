@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 
 
-export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests}) => {
+export const CityRequests = ({requestObject, currentUser, heroes, getFiltered}) => {
    
 
     const localHelpUser=localStorage.getItem("help_user")
@@ -9,29 +9,9 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
           
         const filteredHeroes= heroes.find(hero => hero.id===requestObject.heroesId)
         const helpHero= heroes.find(hero => helpUserObject.id==hero.userId)
-        const navigate = useNavigate()
+   
                 
      
-         
-
-        const deleteButton = () => {
-            if(!currentUser.hero) {
-                return <button onClick={()=>{
-                
-                    fetch(`http://localhost:8088/requests/${requestObject.id}`, {
-                        method:"DELETE"
-                    })
-                    .then(()=>{
-                        getAllRequests()
-                    })
-
-                }} className="request__delete">Delete</button>
-            }
-            else {
-                    return ""
-            }
-
-        }
 
         const claimButton = () => {
             if(currentUser.hero) {
@@ -57,7 +37,7 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Claim</button>
@@ -92,7 +72,7 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Send Partner</button>
@@ -150,7 +130,7 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Claim instead</button>
@@ -184,7 +164,7 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Send partner instead</button>
@@ -219,7 +199,7 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
 
                     })
                     .then(()=>{
-                        getAllRequests()
+                        getFiltered()
                     })
 
                 }} className="request__delete">Cancel</button>
@@ -260,9 +240,7 @@ export const CityRequests = ({requestObject, currentUser, heroes, getAllRequests
     </div>
     </div>
     <footer className="footer">
-        {
-            <div className="button">{deleteButton()}</div>
-        }
+      
        {
             (requestObject.heroesId<9)
             ?""
