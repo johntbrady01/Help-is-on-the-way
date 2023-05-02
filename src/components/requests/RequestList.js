@@ -107,7 +107,7 @@ export const RequestList = () => {
                      {
                          (helpUserObject.hero&&!myCity&&!villianOnly)
                          ?<>
-                         <button onClick={()=>{setMyCity(true) }  }>My citites requests</button>
+                         <button onClick={()=>{setMyCity(true) }  }>My cities requests</button>
                          </>
                          :<>
                          </>
