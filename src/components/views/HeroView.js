@@ -6,11 +6,13 @@ import { RequestList } from "../requests/RequestList"
 import { CitiesList } from "../cities/citiesList"
 import { CityDetails } from "../cities/citiesDetails"
 import { CityRequestList } from "../cities/cityRequestList"
+import ScrollToTop from "../scroll/scroll"
 
 
 
 export const HeroViews = () => {
 	return (
+           <ScrollToTop>
         <Routes>
                     <Route path="home" element={<Home /> } />
 
@@ -24,7 +26,7 @@ export const HeroViews = () => {
                 
                
 
-
         </Routes>
+                </ScrollToTop>
     )
 }
